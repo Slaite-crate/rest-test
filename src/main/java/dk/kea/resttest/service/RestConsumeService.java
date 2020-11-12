@@ -14,10 +14,12 @@ public class RestConsumeService {
 
     final RestTemplate restTemplate;
     private String url;
+    private String urlArray;
 
     public RestConsumeService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         this.url = "https://gturnquist-quoters.cfapps.io/api/random";
+        this.urlArray = "https://gturnquist-quoters.cfapps.io/api";
     }
 
     public Quote fetchSingleQuote(){
@@ -28,20 +30,11 @@ public class RestConsumeService {
         return restTemplate.getForObject(queryURL, Quote.class);
     }
 
-    public ArrayList<Quote> fetchAllQuotes(){
-
+    public Quote[] fetchAllQuotes(){
         String queryURL = UriComponentsBuilder
-                .fromUriString("https://gturnquist-quoters.cfapps.io/api")
+                .fromUriString(urlArray)
                 .toUriString();
 
-        Quote[] quoteArray = restTemplate.getForObject(queryURL, Quote[].class);
-
-        ArrayList<Quote> quotesArrayList = new ArrayList<Quote>();
-
-        if (quoteArray != null) {
-            quotesArrayList.addAll(Arrays.asList(quoteArray));
-        }
-
-        return quotesArrayList;
+        return restTemplate.getForObject(queryURL, Quote[].class);
     }
 }
