@@ -2,15 +2,12 @@ package dk.kea.resttest.service;
 
 
 import dk.kea.resttest.models.Quote;
-import dk.kea.resttest.models.QuoteList;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 @Service
 public class RestConsumeService {
