@@ -17,7 +17,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("quote", restConsumeService.fetchSingleQuote());
-        model.addAttribute("quotelist", restConsumeService.fetchAllQuotes());
+        model.addAttribute("quotearray", restConsumeService.fetchAllQuotes());
         return "index";
     }
 }

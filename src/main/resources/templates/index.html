@@ -8,6 +8,6 @@
     <h2>a random quote</h2>
     <p th:text="${quote.value.quote}"></p>
     <h2>a list of quotes</h2>
-    <p th:each="quot : ${quotelist}" th:text="${quot.value.quote}"></p>
+    <p th:each="quote : ${quotearray}" th:text="${quote.value.quote}"></p>
 </body>
 </html>
